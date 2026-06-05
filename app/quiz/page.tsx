@@ -316,11 +316,14 @@ if (!newsletterUnlocked) {
         </p>
 
         <a
-          href="/#newsletter"
-          className="mt-8 inline-block rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg"
-        >
-          Join the Newsletter
-        </a>
+  href="/"
+  onClick={() => {
+    localStorage.setItem("scrollToNewsletter", "true");
+  }}
+  className="mt-8 inline-block rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg"
+>
+  Join the Newsletter
+</a>
       </div>
     </main>
   );

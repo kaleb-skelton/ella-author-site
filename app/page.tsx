@@ -20,6 +20,19 @@ const [timeLeft, setTimeLeft] = useState({
 const [newsletterUnlocked, setNewsletterUnlocked] = useState(false);
 
 useEffect(() => {
+
+  const shouldScroll = localStorage.getItem("scrollToNewsletter");
+
+if (shouldScroll === "true") {
+  localStorage.removeItem("scrollToNewsletter");
+
+  setTimeout(() => {
+    document
+      .getElementById("newsletter")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 500);
+}
+
   const unlocked = localStorage.getItem("newsletterUnlocked");
 
   if (unlocked === "true") {
