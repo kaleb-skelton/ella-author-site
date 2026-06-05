@@ -1,6 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+const [newsletterUnlocked, setNewsletterUnlocked] = useState(false);
+
+useEffect(() => {
+  const unlocked = localStorage.getItem("newsletterUnlocked");
+  setNewsletterUnlocked(unlocked === "true");
+}, []);
 
 type Answer = {
   text: string;
@@ -289,6 +295,36 @@ export default function QuizPage() {
     setScores({});
     setResult(null);
   };
+
+if (!newsletterUnlocked) {
+  return (
+    <main className="min-h-screen bg-[#fff8f3] px-6 py-24 text-center text-[#3b071d]">
+      <div className="mx-auto max-w-2xl rounded-3xl bg-[#f7e8ea] p-10 shadow-2xl">
+        <p className="text-sm uppercase tracking-[0.35em] text-[#8b6f3d]">
+          Newsletter Exclusive
+        </p>
+
+        <h1
+          className="mt-4 text-4xl font-bold md:text-5xl"
+          style={{ fontFamily: "Cinzel, serif" }}
+        >
+          Unlock the Character Quiz
+        </h1>
+
+        <p className="mt-6 text-lg leading-8 text-[#5b2034]">
+          Join Ella Novell’s newsletter to unlock the character quiz and hidden lore from Aurorium.
+        </p>
+
+        <a
+          href="/#newsletter"
+          className="mt-8 inline-block rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg"
+        >
+          Join the Newsletter
+        </a>
+      </div>
+    </main>
+  );
+}
 
   if (result) {
     const style = characterStyles[result];
