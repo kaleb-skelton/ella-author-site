@@ -1,14 +1,9 @@
 "use client";
 
-import Script from "next/script";
 
 export default function NewsletterForm() {
   return (
     <>
-      <Script
-        src="https://sibforms.com/forms/end-form/build/main.js"
-        strategy="afterInteractive"
-      />
 
       <div className="mx-auto max-w-2xl rounded-3xl border border-[#d6b26e]/30 bg-[#fff8f3] p-8 shadow-2xl">
         <h2
@@ -24,6 +19,7 @@ export default function NewsletterForm() {
         </p>
 
         <form
+          target="_blank"
           id="sib-form"
           method="POST"
           action="https://410fbf74.sibforms.com/serve/MUIFAGjXz5gA7JZND9a-4Lv9cQQhGVjTSUf_zfJJyjPFcYV3HB8qG9er2-tSMjjfMoAW_CU7GT-ZB9NswodZWhISFPzeV2f37fYMBeXwDVOug-zhddhhvNOYx4RXihr4SvDxAV6mU6DFlSkbgrY7MQ6cfcynhZr2nTJ-NdWk5_3JdQkLgusfjvTmBpVI6wUxyRH0dk49b6maJtsRpQ=="
