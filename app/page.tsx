@@ -17,6 +17,16 @@ const [timeLeft, setTimeLeft] = useState({
   seconds: 0,
 });
 
+const [newsletterUnlocked, setNewsletterUnlocked] = useState(false);
+
+useEffect(() => {
+  const unlocked = localStorage.getItem("newsletterUnlocked");
+
+  if (unlocked === "true") {
+    setNewsletterUnlocked(true);
+  }
+}, []);
+
 useEffect(() => {
   const timer = setInterval(() => {
     const now = new Date().getTime();
@@ -452,12 +462,21 @@ className="h-full w-full object-cover object-[75%_center]"  />
   ))}
 </div>
 
-    <a
-      href="/quiz"
-      className="mt-12 inline-block rounded-full bg-[#6e0f33] px-8 py-4 text-white font-semibold shadow-lg"
-    >
-      Join the Newsletter to Unlock the Quiz
-    </a>
+    {newsletterUnlocked ? (
+  <a
+    href="/quiz"
+    className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white"
+  >
+    Take the Character Quiz
+  </a>
+) : (
+  <a
+    href="#newsletter"
+    className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white"
+  >
+    Join the Newsletter to Unlock the Quiz
+  </a>
+)}
   </div>
 </section>
 <div className="flex items-center justify-center py-10 bg-[#6e0f33]">
