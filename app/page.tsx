@@ -465,21 +465,23 @@ className="h-full w-full object-cover object-[75%_center]"  />
    
   </div>
 
-   {newsletterUnlocked ? (
-  <a
-    href="/quiz"
-    className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white"
-  >
-    Take the Character Quiz
-  </a>
-) : (
-  <a
-    href="#newsletter"
-    className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white"
-  >
-    Join the Newsletter to Unlock the Quiz
-  </a>
-)}
+   <div className="mt-24 mb-10 flex justify-center">
+  {newsletterUnlocked ? (
+    <a
+      href="/quiz"
+      className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-1"
+    >
+      Take the Character Quiz
+    </a>
+  ) : (
+    <a
+      href="#newsletter"
+      className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-1"
+    >
+      Join the Newsletter to Unlock the Quiz
+    </a>
+  )}
+</div>
 </section>
 <div className="flex items-center justify-center py-10 bg-[#6e0f33]">
   <div className="h-px w-24 bg-[#d6b26e]" />
