@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@import "aos/dist/aos.css";
+
+.blood-write {
+  font-family: Cinzel, serif;
+  font-weight: 900;
+  fill: transparent;
+  stroke: #650000;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+}
+
+.blood-main {
+  font-size: 62px;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+}
+
+.blood-sub {
+  font-size: 48px;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+}
+
+.tapestry-easter-egg:hover .blood-main {
+  opacity: 1;
+  animation: bloodWriteMain 2s ease forwards;
+}
+
+.tapestry-easter-egg:hover .blood-sub {
+  opacity: 1;
+  animation: bloodWriteSub 1.8s ease forwards;
+  animation-delay: 1.8s;
+}
+
+@keyframes bloodWriteMain {
+  to {
+    stroke-dashoffset: 0;
+    fill: rgba(95, 0, 0, 0.85);
+  }
+}
+
+@keyframes bloodWriteSub {
+  to {
+    stroke-dashoffset: 0;
+    fill: rgba(70, 0, 0, 0.9);
+  }
+}
+
+.blood-drip-svg {
+  fill: none;
+  stroke: #5a0000;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  opacity: 0;
+}
+
+.tapestry-easter-egg:hover .blood-drip-svg {
+  opacity: 1;
+  animation: dripDown 1.6s ease-in forwards;
+  animation-delay: 3.2s;
+}
+
+@keyframes dripDown {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+  }
+
+  p {
+    line-height: 1.7 !important;
+  }
+
+  nav {
+    top: 1rem !important;
+    right: 1rem !important;
+  }
+
+  .group-hover\:w-\[1080px\]:hover,
+  .group-hover\:w-\[1150px\]:hover,
+  .group-hover\:w-\[1200px\]:hover {
+    width: 92vw !important;
+  }
+
+  .rounded-3xl {
+    border-radius: 1.25rem !important;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .grid {
+    gap: 1.25rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .h-80.w-80 {
+    height: 17rem !important;
+    width: 17rem !important;
+  }
+
+  .text-5xl {
+    font-size: 2.5rem !important;
+  }
+
+  .text-6xl,
+  .text-7xl,
+  .text-8xl,
+  .text-9xl {
+    font-size: 3rem !important;
+  }
+
+  .tracking-\[0\.35em\] {
+    letter-spacing: 0.22em !important;
+  }
+
+  .px-8 {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
