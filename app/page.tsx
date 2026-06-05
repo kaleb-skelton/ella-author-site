@@ -460,12 +460,11 @@ className="h-full w-full object-cover object-[75%_center]"  />
       </div>
     </div>
   ))}
-</div>
 
    
   </div>
 
-   <div className="mt-24 mb-10 flex justify-center">
+<div className="mt-24 mb-10 flex justify-center">
   {newsletterUnlocked ? (
     <a
       href="/quiz"
@@ -481,6 +480,7 @@ className="h-full w-full object-cover object-[75%_center]"  />
       Join the Newsletter to Unlock the Quiz
     </a>
   )}
+  </div>
 </div>
 </section>
 <div className="flex items-center justify-center py-10 bg-[#6e0f33]">
