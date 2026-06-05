@@ -462,7 +462,10 @@ className="h-full w-full object-cover object-[75%_center]"  />
   ))}
 </div>
 
-    {newsletterUnlocked ? (
+   
+  </div>
+
+   {newsletterUnlocked ? (
   <a
     href="/quiz"
     className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white"
@@ -477,7 +480,6 @@ className="h-full w-full object-cover object-[75%_center]"  />
     Join the Newsletter to Unlock the Quiz
   </a>
 )}
-  </div>
 </section>
 <div className="flex items-center justify-center py-10 bg-[#6e0f33]">
   <div className="h-px w-24 bg-[#d6b26e]" />
