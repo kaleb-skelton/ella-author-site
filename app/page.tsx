@@ -1,6 +1,10 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
+
+import NewsletterForm from "./components/NewsletterForm";
+
 
 export default function Home() {
 
@@ -461,33 +465,9 @@ className="h-full w-full object-cover object-[75%_center]"  />
   <span className="mx-4 text-[#d6b26e]">✦</span>
   <div className="h-px w-24 bg-[#d6b26e]" />
 </div>
-      <section
-        id="newsletter"
-        className="px-6 py-24 bg-[#6e0f33] text-white text-center"
-      >
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Join Ella's Newsletter
-          </h2>
-
-          <p className="mt-6 text-lg">
-            Get release updates, character reveals, exclusive snippets, and
-            first access to cover reveals.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 rounded-full px-6 py-4 text-[#3b071d]"
-            />
-
-            <button className="rounded-full bg-[#d6b26e] px-8 py-4 font-semibold text-[#3b071d]">
-              Sign Up
-            </button>
-          </div>
-        </div>
-      </section>
+      <section id="newsletter" className="px-6 py-24 bg-[#fff8f3]">
+  <NewsletterForm />
+</section>
     </main>
   );
 }
