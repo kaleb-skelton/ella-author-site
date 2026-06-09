@@ -76,8 +76,8 @@ export default function WorldPage() {
     {
       name: "The Cutlass River",
       text: "A vast river that flows inland from the Southern Sea, cutting through the heart of the continent. Near the Ice Tips, its waters freeze beneath the region’s harsh climate. Many believe the river continues beneath the mountains and into lands beyond Aurorium, though no expedition has ever confirmed the claim.",
-      top: "50%",
-      left: "54%",
+      top: "45%",
+      left: "44%",
     },
     {
       name: "The Southern Sea",

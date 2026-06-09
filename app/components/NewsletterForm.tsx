@@ -1,7 +1,11 @@
 "use client";
 
 
-export default function NewsletterForm() {
+export default function NewsletterForm({
+  onSuccess,
+}: {
+  onSuccess?: () => void;
+}) {
   return (
     <>
 
@@ -27,7 +31,7 @@ export default function NewsletterForm() {
           className="mt-8"
          onSubmit={() => {
   localStorage.setItem("newsletterUnlocked", "true");
-  window.location.href = "/quiz";
+  onSuccess?.();
 }}
         >
           <label
