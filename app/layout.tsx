@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AOSInit from "./components/AOSInit";
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
   title: "Ella Novell",
@@ -45,7 +46,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col"><AOSInit />{children}</body>
+      <body className="min-h-full flex flex-col"><AOSInit />{children}<Analytics /></body>
     </html>
   );
 }

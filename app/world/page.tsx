@@ -52,8 +52,8 @@ export default function WorldPage() {
     {
       name: "Valtara",
       text: "A territory of the Southern States ruled by House Tain. Long plagued by war, Valtara has spent centuries in conflict with neighboring Eldridoria, leaving much of the region scarred by violence and loss.",
-      top: "70%",
-      left: "41%",
+      top: "67%",
+      left: "40%",
     },
     {
       name: "Tide Cross",
@@ -64,8 +64,8 @@ export default function WorldPage() {
     {
       name: "The Griege Islands",
       text: "A scattered chain of islands belonging to the Southern States, with the city of Virdis serving as their capital. The islands are not governed by any noble house and maintain a complicated, often strained relationship with the crown.",
-      top: "87%",
-      left: "47.5%",
+      top: "89%",
+      left: "45%",
     },
     {
       name: "The Ice Tips",
@@ -83,7 +83,7 @@ export default function WorldPage() {
       name: "The Southern Sea",
       text: "The great sea that borders Aurorium’s southern coast and surrounds the Griege Islands. For centuries, it has served as the continent’s primary route for trade, travel, and exploration.",
       top: "77%",
-      left: "49.5%",
+      left: "55%",
     },
     {
       name: "Mirewood",
@@ -235,7 +235,7 @@ export default function WorldPage() {
         </div>
 
         {selectedLocation && (
-  <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 p-4">
+  <div className="fixed inset-0 z-[9998] overflow-visible flex items-center justify-center bg-black/75 p-4">
     <div className="relative max-h-[80vh] w-full max-w-lg overflow-y-auto rounded-3xl bg-[#fff8f3] p-6 text-center shadow-2xl">
       <p className="text-xs uppercase tracking-[0.3em] text-[#8b6f3d]">
         Explore the Realm
@@ -252,12 +252,12 @@ export default function WorldPage() {
         {selectedLocation.text}
       </p>
 
-      <button
-        onClick={() => setSelectedLocation(null)}
-        className="mt-8 rounded-full bg-[#6e0f33] px-10 py-4 font-semibold text-white"
-      >
-        Close
-      </button>
+     <button
+  onClick={() => setSelectedLocation(null)}
+  className="absolute top-4 right-4 z-[9999] flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white"
+>
+  x
+</button>
     </div>
   </div>
 )}

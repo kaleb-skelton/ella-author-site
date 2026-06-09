@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import NewsletterForm from "./components/NewsletterForm";
 
 
+
 export default function Home() {
 
 const releaseDate = new Date("2026-12-01T00:00:00");
@@ -18,27 +19,33 @@ const [timeLeft, setTimeLeft] = useState({
 });
 
 const [newsletterUnlocked, setNewsletterUnlocked] = useState(false);
+const [showNewsletterModal, setShowNewsletterModal] = useState(false);
 
 useEffect(() => {
+  const unlocked = localStorage.getItem("newsletterUnlocked") === "true";
+  setNewsletterUnlocked(unlocked);
+}, []);
 
-  const shouldScroll = localStorage.getItem("scrollToNewsletter");
-
-if (shouldScroll === "true") {
-  localStorage.removeItem("scrollToNewsletter");
-
-  setTimeout(() => {
-    document
-      .getElementById("newsletter")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, 500);
+function openNewsletterModal() {
+  setShowNewsletterModal(true);
 }
 
-  const unlocked = localStorage.getItem("newsletterUnlocked");
+function closeNewsletterModal() {
+  setShowNewsletterModal(false);
+}
 
-  if (unlocked === "true") {
-    setNewsletterUnlocked(true);
+function handleNewsletterSuccess() {
+  localStorage.setItem("newsletterUnlocked", "true");
+  setNewsletterUnlocked(true);
+  setShowNewsletterModal(false);
+}
+
+function handleQuizClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  if (!newsletterUnlocked) {
+    e.preventDefault();
+    setShowNewsletterModal(true);
   }
-}, []);
+}
 
 useEffect(() => {
   const timer = setInterval(() => {
@@ -477,23 +484,9 @@ className="h-full w-full object-cover object-[75%_center]"  />
    
   </div>
 
-<div className="mt-24 mb-10 flex justify-center">
-  {newsletterUnlocked ? (
-    <a
-      href="/quiz"
-      className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-1"
-    >
-      Take the Character Quiz
-    </a>
-  ) : (
-    <a
-      href="#newsletter"
-      className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-1"
-    >
-      Join the Newsletter to Unlock the Quiz
-    </a>
-  )}
-  </div>
+<a href="/quiz" onClick={handleQuizClick}>
+  {newsletterUnlocked ? "Take the Quiz" : "Join the Newsletter"}
+</a>
 </div>
 </section>
 <div className="flex items-center justify-center py-10 bg-[#6e0f33]">
@@ -504,6 +497,14 @@ className="h-full w-full object-cover object-[75%_center]"  />
       <section id="newsletter" className="px-6 py-24 bg-[#fff8f3]">
   <NewsletterForm />
 </section>
+
+{showNewsletterModal && (
+  <NewsletterModal
+    onClose={closeNewsletterModal}
+    onSuccess={handleNewsletterSuccess}
+  />
+)}
+
     </main>
   );
 }
