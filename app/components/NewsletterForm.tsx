@@ -1,11 +1,7 @@
 "use client";
 
 
-export default function NewsletterForm({
-  onSuccess,
-}: {
-  onSuccess?: () => void;
-}) {
+export default function NewsletterForm() {
   return (
     <>
 
@@ -29,10 +25,6 @@ export default function NewsletterForm({
           action="https://410fbf74.sibforms.com/serve/MUIFAGjXz5gA7JZND9a-4Lv9cQQhGVjTSUf_zfJJyjPFcYV3HB8qG9er2-tSMjjfMoAW_CU7GT-ZB9NswodZWhISFPzeV2f37fYMBeXwDVOug-zhddhhvNOYx4RXihr4SvDxAV6mU6DFlSkbgrY7MQ6cfcynhZr2nTJ-NdWk5_3JdQkLgusfjvTmBpVI6wUxyRH0dk49b6maJtsRpQ=="
           data-type="subscription"
           className="mt-8"
-         onSubmit={() => {
-  localStorage.setItem("newsletterUnlocked", "true");
-  onSuccess?.();
-}}
         >
           <label
             htmlFor="EMAIL"

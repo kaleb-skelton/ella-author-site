@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import NewsletterForm from "./components/NewsletterForm";
 
-import NewsletterModal from "./components/NewsletterModal";
+//import NewsletterModal from "./components/NewsletterModal";
 
 export default function Home() {
 
@@ -18,10 +18,10 @@ const [timeLeft, setTimeLeft] = useState({
   seconds: 0,
 });
 
-const [newsletterUnlocked, setNewsletterUnlocked] = useState(false);
-const [showNewsletterModal, setShowNewsletterModal] = useState(false);
+//const [newsletterUnlocked, setNewsletterUnlocked] = useState(false);
+//const [showNewsletterModal, setShowNewsletterModal] = useState(false);
 
-useEffect(() => {
+/*useEffect(() => {
   const unlocked = localStorage.getItem("newsletterUnlocked") === "true";
   setNewsletterUnlocked(unlocked);
 }, []);
@@ -34,11 +34,11 @@ function closeNewsletterModal() {
   setShowNewsletterModal(false);
 }
 
-function handleNewsletterSuccess() {
-  localStorage.setItem("newsletterUnlocked", "true");
-  setNewsletterUnlocked(true);
-  setShowNewsletterModal(false);
-}
+//function handleNewsletterSuccess() {
+//  localStorage.setItem("newsletterUnlocked", "true");
+//  setNewsletterUnlocked(true);
+//  setShowNewsletterModal(false);
+//}
 
 function handleQuizClick(e: React.MouseEvent<HTMLAnchorElement>) {
   if (!newsletterUnlocked) {
@@ -46,6 +46,7 @@ function handleQuizClick(e: React.MouseEvent<HTMLAnchorElement>) {
     setShowNewsletterModal(true);
   }
 }
+  */
 
 useEffect(() => {
   const timer = setInterval(() => {
@@ -190,22 +191,13 @@ useEffect(() => {
   The Prophecy is a Lie.
 </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            {newsletterUnlocked ? (
+         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
   <a
-    href="/quiz"
-    className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-[#5a0c2a]"
-  >
-    Take the Quiz
-  </a>
-) : (
-  <button
-    onClick={openNewsletterModal}
+    href="#newsletter"
     className="rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-[#5a0c2a]"
   >
     Join the Newsletter
-  </button>
-)}
+  </a>
 
             <a
               href="#book"
@@ -494,11 +486,10 @@ className="h-full w-full object-cover object-[75%_center]"  />
   </div>
 
 <a
-  href="/quiz"
-  onClick={handleQuizClick}
+  href="#newsletter"
   className="mt-8 inline-flex items-center justify-center rounded-full bg-[#6e0f33] px-8 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-1 hover:bg-[#5a0c2a]"
 >
-  {newsletterUnlocked ? "Take the Quiz" : "Join the Newsletter"}
+  Join the Newsletter to Take the Quiz
 </a>
 </div>
 </section>
@@ -507,32 +498,9 @@ className="h-full w-full object-cover object-[75%_center]"  />
   <span className="mx-4 text-[#d6b26e]">✦</span>
   <div className="h-px w-24 bg-[#d6b26e]" />
 </div>
-      <section id="newsletter" className="px-6 py-24 bg-[#fff8f3]">
-  {newsletterUnlocked ? (
-    <div className="mx-auto max-w-2xl rounded-3xl border border-[#d6b26e]/30 bg-[#fff8f3] p-8 text-center shadow-2xl">
-      <h2
-        className="text-4xl font-bold text-[#3b071d]"
-        style={{ fontFamily: "Cinzel, serif" }}
-      >
-        You're In.
-      </h2>
-
-      <p className="mt-4 text-lg leading-8 text-[#5b2034]">
-        Thank you for joining Ella Novell's newsletter. Your character quiz is now unlocked as well as hidden content and exclusive updates leading up to the release of <em>Where Dusk and Dawn Bleed</em> in December 2026. Stay tuned for more news, sneak peeks, and behind-the-scenes insights into the world of Aurorium!
-      </p>
-
-    </div>
-  ) : (
-    <NewsletterForm onSuccess={handleNewsletterSuccess} />
-  )}
+     <section id="newsletter" className="px-6 py-24 bg-[#fff8f3]">
+  <NewsletterForm />
 </section>
-
-{showNewsletterModal && (
-  <NewsletterModal
-    onClose={closeNewsletterModal}
-    onSuccess={handleNewsletterSuccess}
-  />
-)}
 
     </main>
   );

@@ -30,8 +30,7 @@ export default function NewsletterModal({
           book updates.
         </p>
 
-        <NewsletterForm onSuccess={onSuccess} />
-      </div>
+<NewsletterForm />      </div>
     </div>
   );
 }
